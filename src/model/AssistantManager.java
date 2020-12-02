@@ -1,7 +1,8 @@
 package model;
 
-public class AssistantManager extends Employee {
+public class AssistantManager extends Manager {
 
-
+    private boolean wasPlayer;
+    private Expertise expertise;
 
 }

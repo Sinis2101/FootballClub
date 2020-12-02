@@ -8,7 +8,7 @@ public class Menu {
 
     private static final int EXIT = 0;
 
-    public void start(){
+    public void start() {
 
         int choice;
 
@@ -22,7 +22,7 @@ public class Menu {
         } while (choice != EXIT);
 
     }
-    public void showMenu(){
+    public void showMenu() {
 
         System.out.println("----------------------------------------");
         System.out.println("             FOOTBALL CLUB              ");
@@ -34,7 +34,7 @@ public class Menu {
         System.out.print("Please choose an option [0-1]: ");
 
     }
-    public int getChoice(){
+    public int getChoice() {
 
         int choice = sc.nextInt();
         sc.nextLine();
@@ -42,7 +42,7 @@ public class Menu {
         return choice;
 
     }
-    public void doChoice(int choice){
+    public void doChoice(int choice) {
 
         switch(choice) {
 
