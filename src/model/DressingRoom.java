@@ -32,5 +32,4 @@ public class DressingRoom implements MatrixTools {
         return message;
 
     }
-
 }

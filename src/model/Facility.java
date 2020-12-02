@@ -13,5 +13,4 @@ public class Facility {
         officeArea = new OfficeArea(6, 6);
 
     }
-
 }
