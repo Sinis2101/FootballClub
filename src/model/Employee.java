@@ -1,6 +1,6 @@
 package model;
 
-public class Employee {
+public abstract class Employee {
 
     private String name;
     private String ID;
@@ -20,6 +20,8 @@ public class Employee {
 
     }
 
+    public abstract String getInfo();
+
     // GETTERS
     public String getName() {
         return name;
@@ -27,8 +29,19 @@ public class Employee {
     public String getID() {
         return ID;
     }
+    public int getSalary() {
+        return salary;
+    }
+    public String getStatus() {
+        if(status) return "Active"; else return "Inactive";
+    }
     public Team getTeam() {
         return team;
+    }
+    public String getTeamName() {
+
+        if(team == null) return "N/A"; else return team.getName();
+
     }
 
     // SETTERS

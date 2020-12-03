@@ -30,7 +30,7 @@ public class Team {
 
                 manager = (MainManager) employee;
                 noTeamEmployees.remove(employee);
-                return employee.getName() + " was set as the team Main Manager.";
+                return employee.getName() + " was set as " + name + "'s Main Manager.";
 
             } else {
 
@@ -46,7 +46,7 @@ public class Team {
 
                 assistantManagers.add((AssistantManager) employee);
                 noTeamEmployees.remove(employee);
-                return employee.getName() + " was set as a team Assistant Manager. " + "[" + assistantManagers.size() + "/" + MAX_ASSISTANTS + "]" ;
+                return employee.getName() + " was set as " + name + "'s Assistant Manager. " + "[" + assistantManagers.size() + "/" + MAX_ASSISTANTS + "]" ;
 
             } else {
 
@@ -62,7 +62,7 @@ public class Team {
 
                 players.add((Player) employee);
                 noTeamEmployees.remove(employee);
-                return employee.getName() + " was set as a team Player. " + "[" + players.size() + "/" + MAX_PLAYERS + "]" ;
+                return employee.getName() + " was set as " + name + "'s Player. " + "[" + players.size() + "/" + MAX_PLAYERS + "]" ;
 
             } else {
 

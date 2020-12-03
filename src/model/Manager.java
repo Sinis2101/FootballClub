@@ -1,6 +1,6 @@
 package model;
 
-public class Manager extends Employee {
+public abstract class Manager extends Employee {
 
     private int experienceYears;
 
@@ -10,5 +10,12 @@ public class Manager extends Employee {
 
         this.experienceYears = experienceYears;
 
+    }
+
+    public abstract String getInfo();
+
+    // GETTERS
+    public int getExperienceYears() {
+        return experienceYears;
     }
 }

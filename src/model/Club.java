@@ -75,11 +75,15 @@ public class Club {
     }
     public String fireEmployee(Employee employee) {
 
-        if(employee instanceof MainManager) employee.getTeam().setManager(null);
+        if(employee.getTeam() != null) {
 
-        if(employee instanceof AssistantManager) employee.getTeam().getAssistantManagers().remove(employee);
+            if(employee instanceof MainManager) employee.getTeam().setManager(null);
 
-        if(employee instanceof Player) employee.getTeam().getPlayers().remove(employee);
+            if(employee instanceof AssistantManager) employee.getTeam().getAssistantManagers().remove(employee);
+
+            if(employee instanceof Player) employee.getTeam().getPlayers().remove(employee);
+
+        }
 
         roster.remove(employee);
         noTeamEmployees.remove(employee);

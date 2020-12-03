@@ -14,4 +14,25 @@ public class AssistantManager extends Manager {
         this.expertise = Expertise.values()[expertise-1];
 
     }
+
+    @Override
+    public String getInfo() {
+
+        return  "Name: " + getName() + "\n" +
+                "ID: " + getID() + "\n" +
+                "Salary: " + getSalary() + "\n" +
+                "Status: " + getStatus() + "\n" +
+                "Team: " + getTeamName() + "\n" +
+                "----------------------------------------" + "\n" +
+                "Experience Years: " + getExperienceYears() + "\n" +
+                "----------------------------------------" + "\n" +
+                "Was a player: " + getWasPlayer() + "\n" +
+                "Expertise: " + expertise.name();
+
+    }
+
+    // GETTERS
+    public String getWasPlayer() {
+        if(wasPlayer) return "Yes"; else return "No";
+    }
 }
