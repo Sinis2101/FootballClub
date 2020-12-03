@@ -1,5 +1,6 @@
 package ui;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import model.*;
 
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Menu {
 
     Scanner sc = new Scanner(System.in);
-    Club club = new Club();
+    Club club = new Club(true);
 
     private static final int EXIT = 0;
 
@@ -34,10 +35,11 @@ public class Menu {
         System.out.println("----------------------------------------");
         System.out.println("[1] Hire employee");
         System.out.println("[2] Fire employee");
+        System.out.println("[3] Add employee to a team");
         System.out.println("----------------------------------------");
         System.out.println("[0] Exit");
         System.out.println("----------------------------------------");
-        System.out.print("Please choose an option [0-2]: ");
+        System.out.print("Please choose an option [0-3]: ");
 
     }
     public int getChoice() {
@@ -74,7 +76,6 @@ public class Menu {
 
                 System.out.println("----------------------------------------");
                 System.out.println("            FIRING EMPLOYEE             ");
-                System.out.println("----------------------------------------");
 
                 if(!club.getRoster().isEmpty()){
 
@@ -89,6 +90,42 @@ public class Menu {
 
                 } else {
 
+                    System.out.println("----------------------------------------");
+                    System.out.print("There are no employees to choose from. Press ENTER to go back.");
+
+                }
+
+                break;
+
+            case(3):
+
+                System.out.println("----------------------------------------");
+                System.out.println("         ADD EMPLOYEE TO A TEAM         ");
+
+                if(!club.getRoster().isEmpty()) {
+
+                    Employee employee = null;
+
+                    do {
+
+                        employee = chooseNoTeamEmployee("Please choose an employee to add to a team");
+
+                    } while (employee == null);
+
+                    Team team = null;
+
+                    do {
+
+                        team = chooseTeam("Please choose a team to add the employee to");
+
+                    } while (team == null);
+
+                    System.out.println("----------------------------------------");
+                    System.out.print(club.addEmployeeToTeam(employee, team));
+
+                } else {
+
+                    System.out.println("----------------------------------------");
                     System.out.print("There are no employees to choose from. Press ENTER to go back.");
 
                 }
@@ -196,18 +233,58 @@ public class Menu {
     }
     public Employee chooseEmployee(String message) {
 
+        System.out.println("----------------------------------------");
+
         for (Employee i : club.getRoster()) {
 
-            System.out.println("[" + (club.getRoster().indexOf(i)+1) + "] " + i.getName());
+            System.out.println("[" + (club.getRoster().indexOf(i)+1) + "] " + i.getName() + " [" + i.getClass().getSimpleName() + "]");
 
         }
 
         System.out.println("----------------------------------------");
         System.out.print(message + " [1-" + club.getRoster().size() + "]: ");
-        int userChoice = sc.nextInt();
-        sc.nextLine();
+        int userChoice = sc.nextInt(); sc.nextLine();
 
-        return club.getRoster().get(userChoice-1);
+        if(userChoice > club.getRoster().size() || userChoice < 1) return null; else return club.getRoster().get(userChoice-1);
 
     }
+    public Employee chooseNoTeamEmployee(String message) {
+
+        System.out.println("----------------------------------------");
+
+        for (Employee i : club.getNoTeamEmployees()) {
+
+            System.out.println("[" + (club.getNoTeamEmployees().indexOf(i)+1) + "] " + i.getName() + " [" + i.getClass().getSimpleName() + "]");
+
+        }
+
+        System.out.println("----------------------------------------");
+        System.out.print(message + " [1-" + club.getNoTeamEmployees().size() + "]: ");
+        int userChoice = sc.nextInt(); sc.nextLine();
+
+        if(userChoice > club.getNoTeamEmployees().size() || userChoice < 1) return null; else return club.getNoTeamEmployees().get(userChoice-1);
+
+    }
+
+    public Team chooseTeam(String message) {
+
+        System.out.println("----------------------------------------");
+        System.out.println("[1] " + club.getTeamA().getName());
+        System.out.println("[2] " + club.getTeamB().getName());
+        System.out.println("----------------------------------------");
+        System.out.print(message + " [1-2]: ");
+        int userChoice = sc.nextInt(); sc.nextLine();
+
+        if(userChoice == 1) {
+
+            return club.getTeamA();
+
+        } else if (userChoice == 2) {
+
+            return club.getTeamB();
+
+        } else return null;
+
+    }
+
 }
