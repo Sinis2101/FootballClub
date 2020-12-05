@@ -473,6 +473,10 @@ public class Menu {
 
                 System.out.println("----------------------------------------");
                 System.out.println("           SHOWING CLUB DATA            ");
+                System.out.println("----------------------------------------");
+                System.out.println(club.getInfo());
+                System.out.println("----------------------------------------");
+                System.out.print("All club data has been showed. Press ENTER to continue.");
 
                 break;
 
