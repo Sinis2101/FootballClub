@@ -4,11 +4,15 @@ public class LineUp implements MatrixTools {
 
     private String date;
     private Tactic tactic;
+    private String lineupInput;
     private int[][] lineup;
 
-    public LineUp(String date, int tactic) {
+    public LineUp(String date, int tactic, String lineupInput) {
 
-
+        this.date = date;
+        this.tactic = Tactic.values()[tactic-1];
+        lineup = new int[10][7];
+        this.lineupInput = lineupInput;
 
     }
 
@@ -33,4 +37,14 @@ public class LineUp implements MatrixTools {
 
     }
 
+    // GETTERS
+    public String getDate() {
+        return date;
+    }
+    public Tactic getTactic() {
+        return tactic;
+    }
+    public String getLineupInput() {
+        return lineupInput;
+    }
 }

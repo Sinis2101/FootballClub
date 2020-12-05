@@ -75,6 +75,13 @@ public class Team {
         return null;
 
     }
+    public String addLineup(LineUp lineup) {
+
+        lineups.add(lineup);
+
+        return "Lineup has been added to the team. Press ENTER to continue.";
+
+    }
 
     public String getInfo() {
 
@@ -107,6 +114,9 @@ public class Team {
     }
     public ArrayList<Player> getPlayers() {
         return players;
+    }
+    public ArrayList<LineUp> getLineups() {
+        return lineups;
     }
 
     // SETTERS

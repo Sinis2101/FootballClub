@@ -40,16 +40,17 @@ public class Menu {
         System.out.println("[5] Update employee data");
         System.out.println("----------------------------------------");
         System.out.println("[6] Add line up to a team");
-        System.out.println("[7] Show team data");
+        System.out.println("[7] Show team lineups");
+        System.out.println("[8] Show team data");
         System.out.println("----------------------------------------");
-        System.out.println("[8] Show dressing rooms");
-        System.out.println("[9] Show office area");
+        System.out.println("[9] Show dressing rooms");
+        System.out.println("[10] Show office area");
         System.out.println("----------------------------------------");
-        System.out.println("[10] Show club data");
+        System.out.println("[11] Show club data");
         System.out.println("----------------------------------------");
         System.out.println("[0] Exit");
         System.out.println("----------------------------------------");
-        System.out.print("Please choose an option [0-10]: ");
+        System.out.print("Please choose an option [0-11]: ");
 
     }
     public int getChoice() {
@@ -424,9 +425,61 @@ public class Menu {
                 System.out.println("----------------------------------------");
                 System.out.println("           ADDING TEAM LINEUP           ");
 
+                Team team = chooseTeam("Please choose a team to add the lineup to");
+                System.out.println("----------------------------------------");
+
+                LineUp lineUp = registerLineup();
+
+                System.out.println("----------------------------------------");
+
+                if(team == club.getTeamA()) {
+
+                    System.out.print(club.getTeamA().addLineup(lineUp));
+
+                } else {
+
+                    System.out.print(club.getTeamB().addLineup(lineUp));
+
+                }
+
                 break;
 
             case(7):
+
+                System.out.println("----------------------------------------");
+                System.out.println("            SHOWING LINEUPS             ");
+
+                Team teamChoice = chooseTeam("Please choose a team to show its lineups");
+
+                if(teamChoice == club.getTeamA()) {
+
+                    for(LineUp lineup : club.getTeamA().getLineups()) {
+
+                        System.out.println("----------------------------------------");
+                        System.out.println("               LINEUP " + ((club.getTeamA().getLineups().indexOf(lineup))+1) + "                ");
+                        System.out.println("----------------------------------------");
+                        System.out.println("Date: " + lineup.getDate());
+                        System.out.println("Tactic: " + lineup.getTactic().name());
+                        System.out.println("Lineup: " + lineup.getLineupInput());
+                        System.out.println("----------------------------------------");
+                        System.out.println(lineup.showMatrix());
+                        System.out.print("\n"+"\n"+"\n");
+
+                    }
+
+                } else {
+
+                    for(LineUp lineup : club.getTeamB().getLineups()) {
+
+                        System.out.println(lineup.showMatrix());
+
+                    }
+
+                }
+
+                break;
+
+            case(8):
 
                 System.out.println("----------------------------------------");
                 System.out.println("             SHOWING TEAMS              ");
@@ -443,7 +496,7 @@ public class Menu {
 
                 break;
 
-            case(8):
+            case(9):
 
                 System.out.println("----------------------------------------");
                 System.out.println("         SHOWING DRESSING ROOMS         ");
@@ -461,7 +514,7 @@ public class Menu {
 
                 break;
 
-            case(9):
+            case(10):
 
                 System.out.println("----------------------------------------");
                 System.out.println("          SHOWING OFFICE AREA          ");
@@ -469,7 +522,7 @@ public class Menu {
                 System.out.println(club.getFacility().showMatrix());
                 break;
 
-            case(10):
+            case(11):
 
                 System.out.println("----------------------------------------");
                 System.out.println("           SHOWING CLUB DATA            ");
@@ -619,6 +672,29 @@ public class Menu {
         int userChoice = sc.nextInt(); sc.nextLine();
 
         if(userChoice > club.getNoTeamEmployees().size() || userChoice < 1) return null; else return club.getNoTeamEmployees().get(userChoice-1);
+
+    }
+
+    public LineUp registerLineup() {
+
+        System.out.print("Date [dd/mm/aa]: ");
+        String date = sc.nextLine();
+
+        System.out.println("------------- CHOOSE TACTIC ------------");
+        for(int i = 0; i < Tactic.values().length; i++) {
+
+            System.out.println("[" + (i+1) + "] " + Tactic.values()[i].name());
+
+        }
+        System.out.println("----------------------------------------");
+        System.out.print("Please choose lineup tactic [1-4]: ");
+        int tactic = sc.nextInt(); sc.nextLine();
+
+        System.out.println("----------------------------------------");
+        System.out.print("Lineup [e.g. 4-4-2]: ");
+        String lineupInput = sc.nextLine();
+
+        return new LineUp(date, tactic, lineupInput);
 
     }
 
