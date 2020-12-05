@@ -178,6 +178,12 @@ public class Club {
 
         }
 
+        if(employee instanceof Manager) {
+
+            return team.addEmployee(employee, noTeamEmployees) + "\n" + facility.sitManager((Manager) employee);
+
+        }
+
         return team.addEmployee(employee, noTeamEmployees);
 
     }

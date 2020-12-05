@@ -272,7 +272,8 @@ public class Menu {
 
                 System.out.println("----------------------------------------");
                 System.out.println("          SHOWING OFFICE AREA          ");
-
+                System.out.println("----------------------------------------");
+                System.out.println(club.getFacility().showMatrix());
                 break;
 
             case(10):

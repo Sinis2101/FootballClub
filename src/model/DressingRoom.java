@@ -18,8 +18,6 @@ public class DressingRoom implements MatrixTools {
 
             for(int j = 0; j < layout[0].length; j += 2) {
 
-                System.out.println("[" + i + "][" + j + "]");
-
                 if(layout[i][j] == null) {
 
                     layout[i][j] = player;
