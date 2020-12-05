@@ -7,9 +7,9 @@ public class Player extends Employee {
     private double averageRating;
     private Position position;
 
-    public Player(String name, String ID, int salary, int status, int jerseyNumber, int clubGoals, double averageRating, int position) {
+    public Player(String name, String ID, int salary, int jerseyNumber, int clubGoals, double averageRating, int position) {
 
-        super(name, ID, salary, status);
+        super(name, ID, salary);
 
         this.jerseyNumber = jerseyNumber;
         this.clubGoals = clubGoals;
@@ -24,7 +24,7 @@ public class Player extends Employee {
         return  "Name: " + getName() + "\n" +
                 "ID: " + getID() + "\n" +
                 "Salary: " + getSalary() + "\n" +
-                "Status: " + getStatus() + "\n" +
+                "Status: " + getStatusText() + "\n" +
                 "Team: " + getTeamName() + "\n" +
                 "----------------------------------------" + "\n" +
                 "Jersey Number: " + jerseyNumber + "\n" +
@@ -34,4 +34,8 @@ public class Player extends Employee {
 
     }
 
+    // GETTERS
+    public int getJerseyNumber() {
+        return jerseyNumber;
+    }
 }

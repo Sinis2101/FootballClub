@@ -8,15 +8,13 @@ public abstract class Employee {
     private boolean status;
     private Team team;
 
-    public Employee(String name, String ID, int salary, int status) {
+    public Employee(String name, String ID, int salary) {
 
         this.name = name;
         this.ID = ID;
         this.salary = salary;
-
-        if(status == 1) this.status = true; else this.status = false;
-
-        this.team = null;
+        status = true;
+        team = null;
 
     }
 
@@ -32,7 +30,10 @@ public abstract class Employee {
     public int getSalary() {
         return salary;
     }
-    public String getStatus() {
+    public boolean getStatus() {
+        return status;
+    }
+    public String getStatusText() {
         if(status) return "Active"; else return "Inactive";
     }
     public Team getTeam() {
@@ -47,5 +48,8 @@ public abstract class Employee {
     // SETTERS
     public void setTeam(Team team) {
         this.team = team;
+    }
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

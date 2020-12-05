@@ -6,6 +6,12 @@ public class LineUp implements MatrixTools {
     private Tactic tactic;
     private int[][] lineup;
 
+    public LineUp(String date, int tactic) {
+
+
+
+    }
+
     @Override
     public String showMatrix() {
 
@@ -26,4 +32,5 @@ public class LineUp implements MatrixTools {
         return message;
 
     }
+
 }

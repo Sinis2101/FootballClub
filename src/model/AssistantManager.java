@@ -5,9 +5,9 @@ public class AssistantManager extends Manager {
     private boolean wasPlayer;
     private Expertise expertise;
 
-    public AssistantManager(String name, String ID, int salary, int status, int experienceYears, int wasPlayer, int expertise) {
+    public AssistantManager(String name, String ID, int salary, int experienceYears, int wasPlayer, int expertise) {
 
-        super(name, ID, salary, status, experienceYears);
+        super(name, ID, salary, experienceYears);
 
         if(wasPlayer == 1) this.wasPlayer = true; else this.wasPlayer = false;
 
@@ -21,7 +21,7 @@ public class AssistantManager extends Manager {
         return  "Name: " + getName() + "\n" +
                 "ID: " + getID() + "\n" +
                 "Salary: " + getSalary() + "\n" +
-                "Status: " + getStatus() + "\n" +
+                "Status: " + getStatusText() + "\n" +
                 "Team: " + getTeamName() + "\n" +
                 "----------------------------------------" + "\n" +
                 "Experience Years: " + getExperienceYears() + "\n" +

@@ -6,9 +6,9 @@ public class MainManager extends Manager {
     private int championshipsWon;
 
 
-    public MainManager(String name, String ID, int salary, int status, int experienceYears, int managedTeams, int championshipsWon) {
+    public MainManager(String name, String ID, int salary, int experienceYears, int managedTeams, int championshipsWon) {
 
-        super(name, ID, salary, status, experienceYears);
+        super(name, ID, salary, experienceYears);
 
         this.managedTeams = managedTeams;
         this.championshipsWon = championshipsWon;
@@ -21,7 +21,7 @@ public class MainManager extends Manager {
         return  "Name: " + getName() + "\n" +
                 "ID: " + getID() + "\n" +
                 "Salary: " + getSalary() + "\n" +
-                "Status: " + getStatus() + "\n" +
+                "Status: " + getStatusText() + "\n" +
                 "Team: " + getTeamName() + "\n" +
                 "----------------------------------------" + "\n" +
                 "Experience Years: " + getExperienceYears() + "\n" +

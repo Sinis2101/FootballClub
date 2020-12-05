@@ -75,11 +75,6 @@ public class Team {
         return null;
 
     }
-    public void removeEmployee(Employee employee) {
-
-        players.remove(employee);
-
-    }
 
     // GETTERS
     public String getName() {

@@ -36,11 +36,20 @@ public class Menu {
         System.out.println("[1] Hire employee");
         System.out.println("[2] Fire employee");
         System.out.println("[3] Add employee to a team");
-        System.out.println("[4] Show employees");
+        System.out.println("[4] Show employee data");
+        System.out.println("[5] Update employee data");
+        System.out.println("----------------------------------------");
+        System.out.println("[6] Add line up to a team");
+        System.out.println("[7] Show team data");
+        System.out.println("----------------------------------------");
+        System.out.println("[8] Show dressing rooms");
+        System.out.println("[9] Show office area");
+        System.out.println("----------------------------------------");
+        System.out.println("[10] Show club data");
         System.out.println("----------------------------------------");
         System.out.println("[0] Exit");
         System.out.println("----------------------------------------");
-        System.out.print("Please choose an option [0-4]: ");
+        System.out.print("Please choose an option [0-10]: ");
 
     }
     public int getChoice() {
@@ -111,7 +120,7 @@ public class Menu {
                 System.out.println("----------------------------------------");
                 System.out.println("         ADD EMPLOYEE TO A TEAM         ");
 
-                if(!club.getRoster().isEmpty()) {
+                if(!club.getNoTeamEmployees().isEmpty()) {
 
                     Employee employee = null;
 
@@ -135,7 +144,7 @@ public class Menu {
                 } else {
 
                     System.out.println("----------------------------------------");
-                    System.out.print("There are no employees to choose from. Press ENTER to go back.");
+                    System.out.print("All employees already have a team. Press ENTER to go back.");
 
                 }
 
@@ -154,7 +163,7 @@ public class Menu {
 
                         for(Employee employee : club.getRoster()) {
 
-                            if(employee instanceof MainManager) {
+                            if(employee instanceof MainManager && employee.getStatus()) {
 
                                 mainManagers ++;
 
@@ -169,7 +178,7 @@ public class Menu {
 
                         for(Employee employee : club.getRoster()) {
 
-                            if(employee instanceof AssistantManager) {
+                            if(employee instanceof AssistantManager && employee.getStatus()) {
 
                                 assistantManagers ++;
 
@@ -184,7 +193,7 @@ public class Menu {
 
                         for(Employee employee : club.getRoster()) {
 
-                            if(employee instanceof Player) {
+                            if(employee instanceof Player && employee.getStatus()) {
 
                                 players ++;
 
@@ -206,6 +215,70 @@ public class Menu {
                         System.out.print("There are no employees to show. Press ENTER to go back.");
 
                     }
+
+                break;
+
+            case(5):
+
+                System.out.println("----------------------------------------");
+                System.out.println("           UPDATING EMPLOYEE            ");
+
+                if(!club.getRoster().isEmpty()) {
+
+
+
+                } else {
+
+                    System.out.println("----------------------------------------");
+                    System.out.print("There are no employees to update. Press ENTER to go back.");
+
+                }
+
+                break;
+
+            case(6):
+
+                System.out.println("----------------------------------------");
+                System.out.println("           ADDING TEAM LINEUP           ");
+
+                break;
+
+            case(7):
+
+                System.out.println("----------------------------------------");
+                System.out.println("             SHOWING TEAMS              ");
+
+                break;
+
+            case(8):
+
+                System.out.println("----------------------------------------");
+                System.out.println("         SHOWING DRESSING ROOMS         ");
+                System.out.println("----------------------------------------");
+                System.out.println("             DRESSING ROOM A            ");
+                System.out.println("----------------------------------------");
+                System.out.println(club.getFacility().getDressingRoomA().showMatrix());
+
+                System.out.println("\n"+"\n"+"\n");
+
+                System.out.println("----------------------------------------");
+                System.out.println("             DRESSING ROOM B            ");
+                System.out.println("----------------------------------------");
+                System.out.println(club.getFacility().getDressingRoomB().showMatrix());
+
+                break;
+
+            case(9):
+
+                System.out.println("----------------------------------------");
+                System.out.println("          SHOWING OFFICE AREA          ");
+
+                break;
+
+            case(10):
+
+                System.out.println("----------------------------------------");
+                System.out.println("           SHOWING CLUB DATA            ");
 
                 break;
 
@@ -233,14 +306,6 @@ public class Menu {
         System.out.print("Salary: " );
         int salary = sc.nextInt(); sc.nextLine();
 
-        System.out.println("------------- CHOOSE STATUS ------------");
-        System.out.println("[1] Active");
-        System.out.println("[2] Inactive");
-        System.out.println("----------------------------------------");
-        System.out.print("Please choose employee status [1-2]: ");
-        int status = sc.nextInt(); sc.nextLine();
-        System.out.println("----------------------------------------");
-
         switch(type) {
 
             case(1): // MAIN MANAGER
@@ -254,7 +319,7 @@ public class Menu {
                 System.out.print("Championships Won: " );
                 int championshipsWon = sc.nextInt(); sc.nextLine();
 
-                return new MainManager(name, ID, salary, status, experienceYears, managedTeams, championshipsWon);
+                return new MainManager(name, ID, salary, experienceYears, managedTeams, championshipsWon);
 
             case(2): // ASSISTANT MANAGER
 
@@ -278,7 +343,7 @@ public class Menu {
                 System.out.print("Please choose manager expertise [1-4]: ");
                 int expertise = sc.nextInt(); sc.nextLine();
 
-                return new AssistantManager(name, ID, salary, status, experienceYears, wasPlayer, expertise);
+                return new AssistantManager(name, ID, salary, experienceYears, wasPlayer, expertise);
 
             case(3): // PLAYER
 
@@ -301,7 +366,7 @@ public class Menu {
                 System.out.print("Please choose player position [1-4]: ");
                 int position = sc.nextInt(); sc.nextLine();
 
-                return new Player(name, ID, salary, status, number, clubGoals, averageRating, position);
+                return new Player(name, ID, salary, number, clubGoals, averageRating, position);
 
         }
 
@@ -312,27 +377,33 @@ public class Menu {
 
         System.out.println("----------------------------------------");
 
+        int employee = 0;
+
         for (Employee i : club.getRoster()) {
 
-            if(i.getTeam() == null) {
+            if(i.getStatus()) {
 
-                System.out.println("[" + (club.getRoster().indexOf(i)+1) + "] " + i.getName() + " (" + i.getClass().getSimpleName() + ")");
+                employee ++;
 
-            } else {
+                if(i.getTeam() == null) {
 
-                System.out.println("[" + (club.getRoster().indexOf(i)+1) + "] " + i.getName() + " (" + i.getTeamName() + "'s " + i.getClass().getSimpleName() + ")");
+                    System.out.println("[" + (club.getRoster().indexOf(i)+1) + "] " + i.getName() + " (" + i.getClass().getSimpleName() + ")");
+
+                } else {
+
+                    System.out.println("[" + (club.getRoster().indexOf(i)+1) + "] " + i.getName() + " (" + i.getTeamName() + "'s " + i.getClass().getSimpleName() + ")");
+
+                }
 
             }
-
-
 
         }
 
         System.out.println("----------------------------------------");
-        System.out.print(message + " [1-" + club.getRoster().size() + "]: ");
+        System.out.print(message + " [1-" + employee + "]: ");
         int userChoice = sc.nextInt(); sc.nextLine();
 
-        if(userChoice > club.getRoster().size() || userChoice < 1) return null; else return club.getRoster().get(userChoice-1);
+        if(userChoice > employee || userChoice < 1) return null; else return club.getRoster().get(userChoice-1);
 
     }
     public Employee chooseNoTeamEmployee(String message) {

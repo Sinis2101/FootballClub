@@ -34,29 +34,94 @@ public class Club {
             roster = new ArrayList<>();
             noTeamEmployees = new ArrayList<>();
 
-            // TEST EMPLOYEES
-            Employee testMainManager = new MainManager("Juan Cruz Real", "66862027", 8000000, 1, 5, 5, 1);
+            /** TEST EMPLOYEES
+            Employee testMainManager = new MainManager("Juan Cruz Real", "66862027", 8000000, 5, 3, 1);
             roster.add(testMainManager);
             noTeamEmployees.add(testMainManager);
-            Employee testAssistantManager = new AssistantManager("Sergi Escobar", "63485167", 5000000, 1, 5, 1, 2);
+            Employee testAssistantManager = new AssistantManager("Sergi Escobar", "63485167", 5000000, 9, 1, 2);
             roster.add(testAssistantManager);
             noTeamEmployees.add(testAssistantManager);
-            Employee testPlayer = new Player("Duvan Vergara", "1005891890", 10000000, 1, 10, 500, 10, 4);
+            Employee testPlayer = new Player("Duvan Vergara", "1005891890", 10000000, 11, 10, 8.7, 4);
             roster.add(testPlayer);
             noTeamEmployees.add(testPlayer);
-            Employee testMainManager2 = new MainManager("Juan Carlos Osorio", "86862027", 9000000, 1, 8, 10, 3);
+            Employee testMainManager2 = new MainManager("Juan Carlos Osorio", "86862027", 9000000, 8, 5, 3);
             roster.add(testMainManager2);
             noTeamEmployees.add(testMainManager2);
-            Employee testAssistantManager2 = new AssistantManager("Juan Robledo", "93185167", 2000000, 1, 3, 0, 1);
+            Employee testAssistantManager2 = new AssistantManager("Juan Robledo", "93185167", 2000000, 4, 2, 1);
             roster.add(testAssistantManager2);
             noTeamEmployees.add(testAssistantManager2);
-            Employee testPlayer2 = new Player("Adrian Ramos", "2045891190", 20000000, 1, 20, 100, 8, 4);
+            Employee testPlayer2 = new Player("Adrian Ramos", "2045891190", 20000000, 20, 20, 8.5, 4);
             roster.add(testPlayer2);
             noTeamEmployees.add(testPlayer2);
+             */
 
             teamA = new Team("America de Cali");
             teamB = new Team("America de Cali B");
             facility = new Facility(teamA, teamB);
+
+            Employee testPlayer = new Player("Duvan Vergara", "1005891890", 10000000, 9, 10, 8.7, 4);
+            roster.add(testPlayer);
+            noTeamEmployees.add(testPlayer);
+
+            Employee testPlayer2 = new Player("Duvan Vergara", "1005891890", 10000000, 11, 10, 8.7, 4);
+            roster.add(testPlayer2);
+            noTeamEmployees.add(testPlayer2);
+
+            Employee testPlayer3 = new Player("Duvan Vergara", "1005891890", 10000000, 120, 10, 8.7, 4);
+            roster.add(testPlayer3);
+            noTeamEmployees.add(testPlayer3);
+
+            Employee testPlayer4 = new Player("Duvan Vergara", "1005891890", 10000000, 13, 10, 8.7, 4);
+            roster.add(testPlayer4);
+            noTeamEmployees.add(testPlayer4);
+
+            Employee testPlayer5 = new Player("Duvan Vergara", "1005891890", 10000000, 14, 10, 8.7, 4);
+            roster.add(testPlayer5);
+            noTeamEmployees.add(testPlayer5);
+
+            Employee testPlayer6 = new Player("Duvan Vergara", "1005891890", 10000000, 15, 10, 8.7, 4);
+            roster.add(testPlayer6);
+            noTeamEmployees.add(testPlayer6);
+
+            Employee testPlayer7 = new Player("Duvan Vergara", "1005891890", 10000000, 16, 10, 8.7, 4);
+            roster.add(testPlayer7);
+            noTeamEmployees.add(testPlayer7);
+
+            Employee testPlayer8 = new Player("Duvan Vergara", "1005891890", 10000000, 17, 10, 8.7, 4);
+            roster.add(testPlayer8);
+            noTeamEmployees.add(testPlayer8);
+
+            Employee testPlayer9 = new Player("Duvan Vergara", "1005891890", 10000000, 18, 10, 8.7, 4);
+            roster.add(testPlayer9);
+            noTeamEmployees.add(testPlayer9);
+
+            Employee testPlayer10 = new Player("Duvan Vergara", "1005891890", 10000000, 19, 10, 8.7, 4);
+            roster.add(testPlayer10);
+            noTeamEmployees.add(testPlayer10);
+
+            Employee testPlayer11 = new Player("Duvan Vergara", "1005891890", 10000000, 20, 10, 8.7, 4);
+            roster.add(testPlayer11);
+            noTeamEmployees.add(testPlayer11);
+
+            Employee testPlayer12 = new Player("Duvan Vergara", "1005891890", 10000000, 21, 10, 8.7, 4);
+            roster.add(testPlayer12);
+            noTeamEmployees.add(testPlayer12);
+
+            Employee testPlayer13 = new Player("Duvan Vergara", "1005891890", 10000000, 22, 10, 8.7, 4);
+            roster.add(testPlayer13);
+            noTeamEmployees.add(testPlayer13);
+
+            Employee testPlayer14 = new Player("Duvan Vergara", "1005891890", 10000000, 23, 10, 8.7, 4);
+            roster.add(testPlayer14);
+            noTeamEmployees.add(testPlayer14);
+
+            Employee testPlayer15 = new Player("Duvan Vergara", "1005891890", 10000000, 24, 10, 8.7, 4);
+            roster.add(testPlayer15);
+            noTeamEmployees.add(testPlayer15);
+
+            Employee testPlayer16 = new Player("Duvan Vergara", "1005891890", 10000000, 25, 10, 8.7, 4);
+            roster.add(testPlayer16);
+            noTeamEmployees.add(testPlayer16);
 
         }
     }
@@ -75,7 +140,7 @@ public class Club {
     }
     public String fireEmployee(Employee employee) {
 
-        if(employee.getTeam() != null) {
+        if(employee.getTeam() != null) { // REMOVES PLAYER FROM TEAM
 
             if(employee instanceof MainManager) employee.getTeam().setManager(null);
 
@@ -87,6 +152,8 @@ public class Club {
 
         roster.remove(employee);
         noTeamEmployees.remove(employee);
+        employee.setStatus(false);
+        roster.add(roster.size(), employee);
 
         return employee.getName() + " with ID: (" + employee.getID() + ") was fired from the club.";
 
@@ -94,6 +161,22 @@ public class Club {
     public String addEmployeeToTeam(Employee employee, Team team) {
 
         employee.setTeam(team);
+
+        if(employee instanceof Player) {
+
+            if(facility.getDressingRoomA().getTeam() == team) {
+
+                return team.addEmployee(employee, noTeamEmployees) + "\n" + facility.getDressingRoomA().sitPlayer((Player) employee);
+
+            }
+
+            if(facility.getDressingRoomB().getTeam() == team) {
+
+                return team.addEmployee(employee, noTeamEmployees) + "\n" + facility.getDressingRoomB().sitPlayer((Player) employee);
+
+            }
+
+        }
 
         return team.addEmployee(employee, noTeamEmployees);
 
@@ -111,5 +194,8 @@ public class Club {
     }
     public Team getTeamB() {
         return teamB;
+    }
+    public Facility getFacility() {
+        return facility;
     }
 }

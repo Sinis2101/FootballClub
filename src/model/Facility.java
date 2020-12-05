@@ -13,4 +13,12 @@ public class Facility {
         officeArea = new Manager[6][6];
 
     }
+
+    // GETTERS
+    public DressingRoom getDressingRoomA() {
+        return dressingRoomA;
+    }
+    public DressingRoom getDressingRoomB() {
+        return dressingRoomB;
+    }
 }
