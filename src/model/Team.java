@@ -76,6 +76,28 @@ public class Team {
 
     }
 
+    public String getInfo() {
+
+        if(manager == null) {
+
+            return  "Name: " + name + "\n" +
+                    "Main Manager: N.A" + "\n" +
+                    "Assistant Managers: [" + assistantManagers.size() + "/" + MAX_ASSISTANTS + "]" + "\n" +
+                    "Players: [" + players.size() + "/" + MAX_PLAYERS + "]" + "\n" +
+                    "Lineups: " + lineups.size();
+
+        } else {
+
+            return  "Name: " + name + "\n" +
+                    "Main Manager: " + manager.getName() + "\n" +
+                    "Assistant Managers: [" + assistantManagers.size() + "/" + MAX_ASSISTANTS + "]" + "\n" +
+                    "Players: [" + players.size() + "/" + MAX_PLAYERS + "]" + "\n" +
+                    "Lineups: " + lineups.size();
+
+        }
+
+    }
+
     // GETTERS
     public String getName() {
         return name;

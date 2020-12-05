@@ -430,6 +430,16 @@ public class Menu {
 
                 System.out.println("----------------------------------------");
                 System.out.println("             SHOWING TEAMS              ");
+                System.out.println("----------------------------------------");
+                System.out.println("                 TEAM A                 ");
+                System.out.println("----------------------------------------");
+                System.out.println(club.getTeamA().getInfo());
+                System.out.println("----------------------------------------");
+                System.out.println("                 TEAM B                 ");
+                System.out.println("----------------------------------------");
+                System.out.println(club.getTeamB().getInfo());
+                System.out.println("----------------------------------------");
+                System.out.print("All team data has been showed. Press ENTER to continue.");
 
                 break;
 
