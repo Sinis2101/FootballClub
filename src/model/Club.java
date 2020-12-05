@@ -34,7 +34,7 @@ public class Club {
             roster = new ArrayList<>();
             noTeamEmployees = new ArrayList<>();
 
-            /** TEST EMPLOYEES
+
             Employee testMainManager = new MainManager("Juan Cruz Real", "66862027", 8000000, 5, 3, 1);
             roster.add(testMainManager);
             noTeamEmployees.add(testMainManager);
@@ -53,75 +53,61 @@ public class Club {
             Employee testPlayer2 = new Player("Adrian Ramos", "2045891190", 20000000, 20, 20, 8.5, 4);
             roster.add(testPlayer2);
             noTeamEmployees.add(testPlayer2);
-             */
 
             teamA = new Team("America de Cali");
             teamB = new Team("America de Cali B");
             facility = new Facility(teamA, teamB);
 
+            /**
             Employee testPlayer = new Player("Duvan Vergara", "1005891890", 10000000, 9, 10, 8.7, 4);
             roster.add(testPlayer);
             noTeamEmployees.add(testPlayer);
-
             Employee testPlayer2 = new Player("Duvan Vergara", "1005891890", 10000000, 11, 10, 8.7, 4);
             roster.add(testPlayer2);
             noTeamEmployees.add(testPlayer2);
-
             Employee testPlayer3 = new Player("Duvan Vergara", "1005891890", 10000000, 120, 10, 8.7, 4);
             roster.add(testPlayer3);
             noTeamEmployees.add(testPlayer3);
-
             Employee testPlayer4 = new Player("Duvan Vergara", "1005891890", 10000000, 13, 10, 8.7, 4);
             roster.add(testPlayer4);
             noTeamEmployees.add(testPlayer4);
-
             Employee testPlayer5 = new Player("Duvan Vergara", "1005891890", 10000000, 14, 10, 8.7, 4);
             roster.add(testPlayer5);
             noTeamEmployees.add(testPlayer5);
-
             Employee testPlayer6 = new Player("Duvan Vergara", "1005891890", 10000000, 15, 10, 8.7, 4);
             roster.add(testPlayer6);
             noTeamEmployees.add(testPlayer6);
-
             Employee testPlayer7 = new Player("Duvan Vergara", "1005891890", 10000000, 16, 10, 8.7, 4);
             roster.add(testPlayer7);
             noTeamEmployees.add(testPlayer7);
-
             Employee testPlayer8 = new Player("Duvan Vergara", "1005891890", 10000000, 17, 10, 8.7, 4);
             roster.add(testPlayer8);
             noTeamEmployees.add(testPlayer8);
-
             Employee testPlayer9 = new Player("Duvan Vergara", "1005891890", 10000000, 18, 10, 8.7, 4);
             roster.add(testPlayer9);
             noTeamEmployees.add(testPlayer9);
-
             Employee testPlayer10 = new Player("Duvan Vergara", "1005891890", 10000000, 19, 10, 8.7, 4);
             roster.add(testPlayer10);
             noTeamEmployees.add(testPlayer10);
-
             Employee testPlayer11 = new Player("Duvan Vergara", "1005891890", 10000000, 20, 10, 8.7, 4);
             roster.add(testPlayer11);
             noTeamEmployees.add(testPlayer11);
-
             Employee testPlayer12 = new Player("Duvan Vergara", "1005891890", 10000000, 21, 10, 8.7, 4);
             roster.add(testPlayer12);
             noTeamEmployees.add(testPlayer12);
-
             Employee testPlayer13 = new Player("Duvan Vergara", "1005891890", 10000000, 22, 10, 8.7, 4);
             roster.add(testPlayer13);
             noTeamEmployees.add(testPlayer13);
-
             Employee testPlayer14 = new Player("Duvan Vergara", "1005891890", 10000000, 23, 10, 8.7, 4);
             roster.add(testPlayer14);
             noTeamEmployees.add(testPlayer14);
-
             Employee testPlayer15 = new Player("Duvan Vergara", "1005891890", 10000000, 24, 10, 8.7, 4);
             roster.add(testPlayer15);
             noTeamEmployees.add(testPlayer15);
-
             Employee testPlayer16 = new Player("Duvan Vergara", "1005891890", 10000000, 25, 10, 8.7, 4);
             roster.add(testPlayer16);
             noTeamEmployees.add(testPlayer16);
+            */
 
         }
     }

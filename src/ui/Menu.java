@@ -225,6 +225,189 @@ public class Menu {
 
                 if(!club.getRoster().isEmpty()) {
 
+                    Employee employee = null;
+
+                    do {
+
+                        employee = chooseEmployee("Please choose an employee to update");
+
+                    } while (employee == null);
+
+                    System.out.println("----------------------------------------");
+                    System.out.println("[1] Salary");
+
+                    if(employee instanceof Manager) {
+
+                        System.out.println("[2] Experience Years");
+
+                        if(employee instanceof AssistantManager) {
+
+                            System.out.println("[3] Expertise");
+
+                            System.out.println("----------------------------------------");
+                            System.out.print("Please choose the data to update [1-3]: ");
+                            choice = sc.nextInt(); sc.nextLine();
+
+                            switch (choice) {
+
+                                case(1):
+
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("New Salary " + "(Currently: " + ((AssistantManager) employee).getSalary() + "): ");
+                                    int salary = sc.nextInt(); sc.nextLine();
+                                    employee.setSalary(salary);
+
+                                    break;
+
+                                case(2):
+
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("Updated Experience Years " + "(Currently: " + ((AssistantManager) employee).getExperienceYears() + "): ");
+                                    int experienceYears = sc.nextInt(); sc.nextLine();
+                                    ((AssistantManager) employee).setExperienceYears(experienceYears);
+
+                                    break;
+
+                                case(3):
+
+                                    System.out.println("----------- CHOOSE EXPERTISE -----------");
+                                    for(int i = 0; i < Expertise.values().length; i++) {
+
+                                        System.out.println("[" + (i+1) + "] " + Expertise.values()[i].name());
+
+                                    }
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("Change expertise [1-4] " + "(Currently: " + ((AssistantManager) employee).getExpertise().name() + "): ");
+                                    int expertise = sc.nextInt(); sc.nextLine();
+
+                                    ((AssistantManager) employee).setExpertise(expertise);
+
+                                    break;
+
+                            }
+
+                        } else {
+
+                            System.out.println("[3] Managed Teams");
+                            System.out.println("[4] Championships Won");
+
+                            System.out.println("----------------------------------------");
+                            System.out.print("Please choose the data to update [1-4]: ");
+                            choice = sc.nextInt(); sc.nextLine();
+
+                            switch (choice) {
+
+                                case(1):
+
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("New Salary " + "(Currently: " + ((MainManager) employee).getSalary() + "): ");
+                                    int salary = sc.nextInt(); sc.nextLine();
+                                    employee.setSalary(salary);
+
+                                    break;
+
+                                case(2):
+
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("Updated Experience Years " + "(Currently: " + ((MainManager) employee).getExperienceYears() + "): ");
+                                    int experienceYears = sc.nextInt(); sc.nextLine();
+                                    ((MainManager) employee).setExperienceYears(experienceYears);
+
+                                    break;
+
+                                case(3):
+
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("Updated Managed Teams " + "(Currently: " + ((MainManager) employee).getManagedTeams() + "): ");
+                                    int managedTeams = sc.nextInt(); sc.nextLine();
+                                    ((MainManager) employee).setManagedTeams(managedTeams);
+
+                                    break;
+
+                                case(4):
+
+                                    System.out.println("----------------------------------------");
+                                    System.out.print("Updated Championships Won " + "(Currently: " + ((MainManager) employee).getChampionshipsWon() + "): ");
+                                    int championshipsWon = sc.nextInt(); sc.nextLine();
+                                    ((MainManager) employee).setChampionshipsWon(championshipsWon);
+
+                                    break;
+
+                            }
+
+                        }
+
+                    } else {
+
+                        System.out.println("[2] Jersey Number");
+                        System.out.println("[3] Club Goals");
+                        System.out.println("[4] Average Rating");
+                        System.out.println("[5] Position");
+
+                        System.out.println("----------------------------------------");
+                        System.out.print("Please choose the data to update [1-5]: ");
+                        choice = sc.nextInt(); sc.nextLine();
+
+                        switch (choice) {
+
+                            case(1):
+
+                                System.out.println("----------------------------------------");
+                                System.out.print("New Salary " + "(Currently: " + employee.getSalary() + "): " );
+                                int salary = sc.nextInt(); sc.nextLine();
+                                employee.setSalary(salary);
+
+                                break;
+
+                            case(2):
+
+                                System.out.println("----------------------------------------");
+                                System.out.print("New Jersey Number " + "(Currently: " + ((Player) employee).getJerseyNumber() + "): ");
+                                int jerseyNumber = sc.nextInt(); sc.nextLine();
+                                ((Player) employee).setJerseyNumber(jerseyNumber);
+
+                                break;
+
+                            case(3):
+
+                                System.out.println("----------------------------------------");
+                                System.out.print("Updated Club Goals " + "(Currently: " + ((Player) employee).getClubGoals() + "): ");
+                                int clubGoals = sc.nextInt(); sc.nextLine();
+                                ((Player) employee).setClubGoals(clubGoals);
+
+                                break;
+
+                            case(4):
+
+                                System.out.println("----------------------------------------");
+                                System.out.print("New Average Rating [0,0 - 10,0] " + "(Currently: " + ((Player) employee).getAverageRating() + "): ");
+                                double averageRating = sc.nextDouble(); sc.nextLine();
+                                ((Player) employee).setAverageRating(averageRating);
+
+                                break;
+
+                            case(5):
+
+                                System.out.println("------------ CHOOSE POSITION -----------");
+                                for(int i = 0; i < Position.values().length; i++) {
+
+                                    System.out.println("[" + (i+1) + "] " + Position.values()[i].name());
+
+                                }
+                                System.out.println("----------------------------------------");
+                                System.out.print("Change position [1-4] " + "(Currently: " + ((Player) employee).getPosition().name() + "): ");
+                                int position = sc.nextInt(); sc.nextLine();
+
+                                ((Player) employee).setPosition(position);
+
+                                break;
+
+                        }
+
+                    }
+
+                    System.out.println("----------------------------------------");
+                    System.out.print("Employee data updated. Press ENTER to continue.");
 
 
                 } else {
@@ -355,7 +538,7 @@ public class Menu {
                 int clubGoals = sc.nextInt(); sc.nextLine();
 
                 System.out.print("Average Rating [0,0 - 10,0]: " );
-                double averageRating = sc.nextDouble();
+                double averageRating = sc.nextDouble(); sc.nextLine();
 
                 System.out.println("------------ CHOOSE POSITION -----------");
                 for(int i = 0; i < Position.values().length; i++) {

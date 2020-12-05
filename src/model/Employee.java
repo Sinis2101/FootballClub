@@ -52,4 +52,8 @@ public abstract class Employee {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
 }

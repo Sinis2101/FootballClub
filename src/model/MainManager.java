@@ -31,4 +31,19 @@ public class MainManager extends Manager {
 
     }
 
+    // GETTERS
+    public int getManagedTeams() {
+        return managedTeams;
+    }
+    public int getChampionshipsWon() {
+        return championshipsWon;
+    }
+
+    // SETTERS
+    public void setManagedTeams(int managedTeams) {
+        this.managedTeams = managedTeams;
+    }
+    public void setChampionshipsWon(int championshipsWon) {
+        this.championshipsWon = championshipsWon;
+    }
 }

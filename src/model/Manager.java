@@ -18,4 +18,9 @@ public abstract class Manager extends Employee {
     public int getExperienceYears() {
         return experienceYears;
     }
+
+    // SETTERS
+    public void setExperienceYears(int experienceYears) {
+        this.experienceYears = experienceYears;
+    }
 }

@@ -35,4 +35,12 @@ public class AssistantManager extends Manager {
     public String getWasPlayer() {
         if(wasPlayer) return "Yes"; else return "No";
     }
+    public Expertise getExpertise() {
+        return expertise;
+    }
+
+    // SETTERS
+    public void setExpertise(int expertise) {
+        this.expertise = Expertise.values()[expertise-1];
+    }
 }
